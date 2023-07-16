@@ -20,14 +20,11 @@ public class Usuario {
     private String email;
     private String nome;
     private String afiliacao;
-
+    private Boolean admin;
     
 
     @ManyToMany
     private List<Atividade> favoritos;
-
-    private String tipo;  
-  
 
     public Usuario() {
         
@@ -73,12 +70,11 @@ public class Usuario {
         this.afiliacao = afiliacao;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Boolean getAdmin() {
+        return admin;
     }
 
-    public void setTipo(String tipo) {
-        //tiposValidos = ["Administrador", "Organizador", "Padrao"]
-        this.tipo = tipo;
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 }

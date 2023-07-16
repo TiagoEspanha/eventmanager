@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Atividade {
@@ -19,7 +21,16 @@ public class Atividade {
     private Date data;
     private Time inicio;
     private Time fim;
-    
+
+    @ManyToOne
+    @JoinColumn(name = "edicao_id")
+    private Edicao edicao;
+
+    @ManyToOne
+    @JoinColumn(name = "espaco_id")
+    private Espaco espaco;
+
+
     public Long getId() {
         return id;
     }

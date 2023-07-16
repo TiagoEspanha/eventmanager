@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Edicao {
@@ -18,7 +20,19 @@ public class Edicao {
     private Date dataFinal;
     private String cidade;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "evento_id")
+    private Evento evento;
+
+    @ManyToOne
+    @JoinColumn(name = "criado_por")
+    private Usuario criador;
+
+    @ManyToOne
+    @JoinColumn(name = "organizado_por")
+    private Usuario organizador;
+
+
     public Long getId() {
         return id;
     }

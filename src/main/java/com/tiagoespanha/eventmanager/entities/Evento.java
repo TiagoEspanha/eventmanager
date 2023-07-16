@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Evento {
@@ -15,8 +17,12 @@ public class Evento {
     private String sigla;
     private String descricao;
 
+    @ManyToOne
+    @JoinColumn(name = "criado_por")
+    private Usuario criador;
+
     public Evento() {
-        
+
     }
 
 
@@ -43,6 +49,15 @@ public class Evento {
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+      public Usuario getCriador() {
+        return criador;
+    }
+
+
+    public void setCriador(Usuario criador) {
+        this.criador = criador;
     }
 
 }

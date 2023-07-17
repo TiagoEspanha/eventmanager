@@ -69,4 +69,22 @@ public class Edicao {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+    public Evento getEvento() {
+        return evento;
+    }
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+    public Usuario getCriador() {
+        return criador;
+    }
+    public void setCriador(Usuario criador) {
+        this.criador = criador;
+    }
+    public Usuario getOrganizador() {
+        return organizador;
+    }
+    public void setOrganizador(Usuario organizador) {
+        this.organizador = organizador;
+    }
 }

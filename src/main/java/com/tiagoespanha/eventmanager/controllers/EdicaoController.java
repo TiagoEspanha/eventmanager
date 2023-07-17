@@ -1,6 +1,10 @@
 package com.tiagoespanha.eventmanager.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +30,26 @@ public class EdicaoController {
     @Autowired
     private UsuarioRepository usuarioRepository;
     
+    @GetMapping()
+    public List<Edicao> listaEdicoes() {
+        List<Edicao> edicoes = edicaoRepository.findAll();
+        return edicoes;
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleta(@PathVariable Long id) {
+        Edicao edicao;
+        try {
+            edicao = edicaoRepository.findById(id).orElseThrow();
+        } catch (Exception err) {
+            return "Edição não existe";
+        }
+
+        edicaoRepository.delete(edicao);
+
+        return "Edição deletada com sucesso";
+    }
+
     @PostMapping("")
     public String criarEdicao(
         @RequestHeader("usuarioId") Long usuarioId,

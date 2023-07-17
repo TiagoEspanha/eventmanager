@@ -1,5 +1,9 @@
 # eventmanager
 
+## Alunos
+- Tiago Marques Espanha
+- Bruno Xavier
+
 ## ENTIDADES
 
     ### USUÁRIO 

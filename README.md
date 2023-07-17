@@ -1,8 +1,11 @@
 # eventmanager
 
+Documentação swagger no arquivo swagger na pasta raiz do projeto
 ## Alunos
 - Tiago Marques Espanha
 - Bruno Xavier
+
+
 
 ## ENTIDADES
 

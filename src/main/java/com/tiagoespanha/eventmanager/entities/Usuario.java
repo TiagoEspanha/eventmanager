@@ -3,9 +3,12 @@ package com.tiagoespanha.eventmanager.entities;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 
 
@@ -23,7 +26,10 @@ public class Usuario {
     private Boolean admin;
     
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        inverseJoinColumns = @JoinColumn(name = "atividade_id")
+    )
     private List<Atividade> favoritos;
 
     public Usuario() {
@@ -76,5 +82,13 @@ public class Usuario {
 
     public void setAdmin(Boolean admin) {
         this.admin = admin;
+    }
+
+    public List<Atividade> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(List<Atividade> favoritos) {
+        this.favoritos = favoritos;
     }
 }

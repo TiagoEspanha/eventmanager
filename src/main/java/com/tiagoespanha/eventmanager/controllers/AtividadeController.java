@@ -68,4 +68,34 @@ public class AtividadeController {
             return "Falha";
         }
     }
+
+    @PostMapping("{id}/favoritar")
+    public String favoritar(
+        @RequestHeader("usuarioId") Long usuarioId,
+        @PathVariable Long id){
+
+        Usuario usuarioAtual;
+        try {
+            usuarioAtual = usuarioRepository.findById(usuarioId).orElseThrow();
+        }
+        catch(Exception err) {
+            return "Usuário não encontrado";
+        }
+
+        Atividade atividade;
+        try {
+            atividade = atividadeRepository.findById(id).orElseThrow();
+        }
+        catch(Exception err) {
+            return "Atividade não encontrado";
+        }
+        
+        
+        List<Atividade> favoritos = usuarioAtual.getFavoritos();
+        favoritos.add(atividade);
+        usuarioAtual.setFavoritos(favoritos);
+        usuarioRepository.save(usuarioAtual);
+        
+        return "Sucesso";
+    }
 }

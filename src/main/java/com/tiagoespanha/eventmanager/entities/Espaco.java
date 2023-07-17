@@ -11,8 +11,9 @@ public class Espaco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-
-    
+    private String localizacao;
+    private Integer capacidade;
+    private String[] recursos;
 
     public Long getId() {
         return id;
@@ -44,7 +45,5 @@ public class Espaco {
     public void setRecursos(String[] recursos) {
         this.recursos = recursos;
     }
-    private String localizacao;
-    private Integer capacidade;
-    private String[] recursos;
+   
 }

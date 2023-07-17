@@ -77,6 +77,7 @@ public class EdicaoController {
             }
 
             novaEdicao.setEvento(evento);
+            
             edicaoRepository.save(novaEdicao);
 
             return "sucesso";
@@ -85,7 +86,7 @@ public class EdicaoController {
 
 
     @PostMapping("{edicaoId}/organizador/{organizadorId}")
-    public String criarEdicao(
+    public String setarOrganizador(
         @RequestHeader("usuarioId") Long usuarioId,
         @PathVariable Long edicaoId,
         @PathVariable Long organizadorId) {

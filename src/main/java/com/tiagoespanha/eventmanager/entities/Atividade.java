@@ -73,4 +73,16 @@ public class Atividade {
     public void setFim(Time fim) {
         this.fim = fim;
     }
+    public Edicao getEdicao() {
+        return edicao;
+    }
+    public void setEdicao(Edicao edicao) {
+        this.edicao = edicao;
+    }
+    public Espaco getEspaco() {
+        return espaco;
+    }
+    public void setEspaco(Espaco espaco) {
+        this.espaco = espaco;
+    }
 }
